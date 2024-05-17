@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "vercel-build": "echo hi",
     "dev": "npx ts-node main.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/main.js"
