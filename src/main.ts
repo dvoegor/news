@@ -1,8 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import 'dotenv/config'
-import authRouter from './src/routes/auth'
-import newsRouter from './src/routes/news'
+import authRouter from './routes/auth'
+import newsRouter from './routes/news'
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use('/auth', authRouter)
 app.use('/news', newsRouter)
+
+app.get('/', (req, res) => {
+  res.send('Hello, Front!')
+})
 
 mongoose
   .connect(process.env.MONGO as string)
